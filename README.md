@@ -1,32 +1,72 @@
-
-
 # ansible-role-govc
 
-## Overview
+Install and manage govc, a statically linked cli tool for operations on VMware vCenter server
 
-## Try it out
+## Requirements
 
-### Prerequisites
+- gunzip
 
-* Prereq 1
-* Prereq 2
-* Prereq 3
+## Role Variables
 
-### Build & Run
+To set the specific version of the binary to install
+- govc\_version: "0.12.1"
 
-1. Step 1
-2. Step 2
-3. Step 3
+Path to install the binary.  Can be used to install to user local path, or system wide path.
+- govc\_path: /usr/bin
 
-## Documentation
+## Dependencies
 
-## Releases & Major Branches
+Not a true dependency, but you'll probably want to install [ansible-role-assets](../ansible-role-assets)
+to pull a set of OVAs.
 
-## Contributing
 
-The ansible-role-govc project team welcomes contributions from the community. If you wish to contribute code and you have not
-signed our contributor license agreement (CLA), our bot will update the issue when you open a Pull Request. For any
-questions about the CLA process, please refer to our [FAQ](https://cla.vmware.com/faq). For more detailed information,
-refer to [CONTRIBUTING.md](CONTRIBUTING.md).
+## Example Playbook
+
+```yaml
+
+---
+- hosts: adminServers
+  roles:
+
+    # Just install govc in standard path
+    - role: ansible-role-govc
+
+    # install govc v0.12.1 in /tmp,
+    # and import a photon ova into an esx or vcenter server
+
+    - role: ansible-role-govc
+      vars:
+        govc_path: /tmp
+        govc_version: "0.12.1"
+
+        # esx or vcenter host and credentials
+        govc_host: esx-a.home.local
+        govc_username: administrator@home.local
+        govc_password: password
+
+        # alternativly, use govc_url
+        #govc_url:  https://user:pass@host/sdk
+
+        govc_ova_imports:
+          - name: photon01
+            ova: /tmp/photon.ova
+          - name: photon02
+            ova: /tmp/photon.ova
+          - name: vcsa
+            spec: /tmp/vcsa.json
+    ova: /tmp/vcsa.ova
+
+
+```
 
 ## License
+
+Copyright © 2017 VMware, Inc. All Rights Reserved.
+SPDX-License-Identifier: MIT
+
+## Author Information
+
+Tom Scanlan
+tscanlan@vmware.com
+tompscanlan@gmail.com
+
