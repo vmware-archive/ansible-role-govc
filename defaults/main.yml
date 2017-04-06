@@ -3,7 +3,7 @@
 ---
 
 # defaults file for govc
-govc_version: "0.12.1"
+govc_version: "0.13.0"
 govc_path: /usr/bin
 govc_tmp: /tmp
 govc_file: "{{govc_path}}/govc"
