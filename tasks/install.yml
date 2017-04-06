@@ -30,9 +30,11 @@
       creates: "{{govc_tmp}}/govc-{{govc_version}}"
 
   - name: move govc into place
-    copy:
-      src: "{{govc_tmp}}/govc-{{govc_version}}"
-      dest: "{{govc_file}}"
+    command: mv "{{govc_tmp}}/govc-{{govc_version}}" "{{govc_file}}"
+
+  - name: ensure govc executable
+    file:
+      path: "{{govc_file}}"
       mode: 0755
 
   when: "govc_version_found|failed or '{{govc_version}}' not in govc_version_found.stdout"
