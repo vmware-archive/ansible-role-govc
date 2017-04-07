@@ -22,6 +22,7 @@ govc_ova_imports: []
 #  - name: photon
 #    ova: /
 
+govc_do_cloud_init: False
 govc_insecure: 1
 govc_datacenter: "Datacenter"
 govc_datastore: "Datastore"
