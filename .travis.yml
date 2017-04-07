@@ -16,7 +16,9 @@ install:
   - mkdir tests/roles
   - ln -s ../ tests/roles/govc
 script:
-  - MOLECULE_PLAYBOOK=tests/travis-playbook.yml molecule test
+  - >
+    sed -i.orig 's;  playbook.*;  playbook: tests/travis-playbook.yml;' molecule.yml
+  - molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

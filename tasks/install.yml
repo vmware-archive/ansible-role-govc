@@ -37,4 +37,4 @@
       path: "{{govc_file}}"
       mode: 0755
 
-  when: "govc_version_found|failed or '{{govc_version}}' not in govc_version_found.stdout"
+  when: "govc_version_found|failed or govc_version not in govc_version_found.stdout"

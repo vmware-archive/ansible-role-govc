@@ -5,9 +5,11 @@ RUN	tdnf makecache && \
 	    binutils \
 	    gzip \
 	    libxml2 \
+	    linux-api-headers \
 	    procps-ng \
 	    python-xml \
 	    python2 \
+	    sed \
 	    shadow \
 	    systemd \
 	    yum \
@@ -26,3 +28,4 @@ STOPSIGNAL SIGRTMIN+3
 
 VOLUME ["/sys/fs/cgroup", "/tmp", "/run", "/run/lock"]
 CMD ["/usr/lib/systemd/systemd"]
+
