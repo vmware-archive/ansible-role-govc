@@ -7,4 +7,3 @@
 
 - include: cloud_init_boot.yml
   when: govc_do_cloud_init is defined and govc_do_cloud_init
-

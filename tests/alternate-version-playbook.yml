@@ -3,4 +3,3 @@
   hosts: all
   roles:
     - { role: govc, govc_version: "0.12.1" }
-
