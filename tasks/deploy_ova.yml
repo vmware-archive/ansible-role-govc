@@ -15,6 +15,8 @@
   register: govc_vm_info
   with_items: "{{ govc_ova_imports }}"
 
+- debug: msg="{{ govc_vm_info }}"
+
 # unless vm by this name already exists, import ova
 - name: Import OVA
   command: >
@@ -38,7 +40,7 @@
     - "{{ govc_ova_imports }}"
     - "{{ govc_vm_info.results }}"
 
-#- debug: msg: "{{ command_result.results }}"
+- debug: msg="{{ command_result }}"
 
 - name: On Import Failed
   fail:
