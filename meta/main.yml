@@ -7,6 +7,8 @@ galaxy_info:
   company: VMware
   license: MIT
   min_ansible_version: 2.0
+  issue_tracker_url: https://github.com/vmware/ansible-role-govc/issues
+
 
   # Optionally specify the branch Galaxy will use when accessing the GitHub
   # repo for this role. During role install, if no tags are available,
@@ -22,47 +24,27 @@ galaxy_info:
   # platform on this list, let us know and we'll get it added!
   #
   platforms:
-  #- name: OpenBSD
-  #  versions:
-  #  - all
-  #  - 5.6
-  #  - 5.7
-  #  - 5.8
-  #  - 5.9
-  #  - 6.0
   - name: Fedora
     versions:
-    - all
     - 24
-    - 25
-  - name: MacOSX
-    versions:
-    - all
-  #  - 10.10
-  #  - 10.11
-  #  - 10.12
-  #  - 10.7
-  #  - 10.8
-  #  - 10.9
-  - name: Linux
-    versions:
-    - all
+
+  - name: Centos
+    version:
+    - 7
+
+  - name: Photon
+    version:
+    - 1.0
+
   - name: Ubuntu
     versions:
-    - all
     - trusty
-    - utopic
-    - vivid
-    - wily
+    - precise
     - xenial
-    - yakkety
-  - name: Debian
-    versions:
-    - squeeze
-    - wheezy
+
   - name: opensuse
     versions:
-    - 42.2
+    - 13.2
 
   galaxy_tags:
     - vmware
