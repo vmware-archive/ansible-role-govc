@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 ---
 
-- name: Register the current govc version (if any)
+- name: Check the current govc version (if any)
   command: govc version
   ignore_errors: yes
   register: govc_version_found
