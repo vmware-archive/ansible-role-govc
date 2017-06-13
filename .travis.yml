@@ -14,6 +14,7 @@ install:
   # - pip install required driver (e.g. docker, python-vagrant, shade)
   - pip install docker
 script:
+  - rm tests/group_vars/*/vault.yml
   - >
     sed -i.orig 's;  playbook.*;  playbook: tests/travis.yml;' molecule.yml
   - molecule test
