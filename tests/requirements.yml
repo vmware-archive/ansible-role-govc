@@ -1,0 +1,4 @@
+- name: assets
+  src: vmware.ansible-role-assets
+- name: pip
+  src: vmware.ansible-role-pip

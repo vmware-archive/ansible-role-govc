@@ -10,4 +10,5 @@ for test in tests/*playbook.yml ; do
 done
 
 
+MOLECULE_PLAYBOOK=tests/cleanup-vms.yml molecule test
 

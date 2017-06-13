@@ -1,0 +1,18 @@
+govc_host: 192.168.1.3
+govc_datastore: "terra disk1"
+govc_username: root
+govc_password: "{{ vault_govc_password }}"
+govc_datacenter: "ha-datacenter"
+downloads_dir: "/Users/tscanlan/Downloads"
+
+govc_ova_imports:
+  - name: "testing-govc-{{ inventory_hostname }}"
+    ova: "{{ downloads_dir }}/photon.ova"
+
+download_files: True
+assets:
+  photon.ova:
+    validate_certs: False
+    description: "photon ova"
+    checksum: "18c1a6d31545b757d897c61a0c3cc0e54d8aeeba"
+    url:  "https://bintray.com/vmware/photon/download_file?file_path=photon-custom-hw11-1.0-62c543d.ova"

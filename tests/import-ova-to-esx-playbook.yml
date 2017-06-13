@@ -1,0 +1,23 @@
+# Copyright © 2017 VMware, Inc. All Rights Reserved.
+# SPDX-License-Identifier: MIT
+---
+# playbook to download photon-os ova, and import it into esx or vcenter.
+# update tests/group_vars/all.yml for your test env
+
+- hosts: import_to_esx
+
+  pre_tasks:
+    - name: install pip
+      include_role:
+        name: pip
+
+    - name: install pip reqs
+      pip:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - pysphere
+
+  roles:
+    - role: assets
+    - role: govc

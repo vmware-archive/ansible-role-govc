@@ -59,6 +59,16 @@ to pull a set of OVAs.
 
 ```
 
+## Testing
+
+Update tests/group_vars to suit your test environment.  Make your own set of 
+vault.yml files, or replace them with un-encrypted versions for your own passwords.
+
+Then run the tests:
+    
+    ./tests/test.sh
+    
+
 ## License
 
 Copyright © 2017 VMware, Inc. All Rights Reserved.
