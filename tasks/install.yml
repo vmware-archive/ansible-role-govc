@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MIT
 ---
 
-- name: Register the current govc version (if any)
-  command: govc version
+- name: Check the current govc version (if any)
+  command: "{{ govc_path }}/govc version"
   ignore_errors: yes
   register: govc_version_found
   changed_when: false
@@ -24,7 +24,7 @@
       validate_certs: no
     when: "'64' in ansible_architecture"
 
-  - name: uncompress govc binary
+  - name: Uncompress govc binary
     command: "gunzip {{govc_tmp}}/govc-{{govc_version}}.gz"
     args:
       creates: "{{govc_tmp}}/govc-{{govc_version}}"
@@ -32,9 +32,19 @@
   - name: move govc into place
     command: mv "{{govc_tmp}}/govc-{{govc_version}}" "{{govc_file}}"
 
-  - name: ensure govc executable
+  - name: Ensure govc executable
     file:
       path: "{{govc_file}}"
       mode: 0755
 
   when: "govc_version_found|failed or govc_version not in govc_version_found.stdout"
+
+- name: Verify installed govc version
+  command: "{{ govc_path }}/govc version"
+  ignore_errors: no
+  register: govc_version_installed
+  changed_when: false
+
+- name: Assert correct installed version
+  assert:
+    that: "not govc_version_installed|failed and govc_version in govc_version_installed.stdout"

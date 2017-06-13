@@ -1,26 +1,24 @@
 ---
-molecule:
-  test:
-    sequence:
-      - destroy
-      - syntax
-      - create
-      - converge
-      - idempotence
-      - verify
 dependency:
   name: galaxy
+  requirements_file: tests/requirements.yml
+  options:
+      ignore-certs: True
+      ignore-errors: True
 ansible:
   verbose: False
   playbook: "${MOLECULE_PLAYBOOK}"
-  raw_env_vars:
-    ANSIBLE_ROLES_PATH: .molecule/roles/:.molecule/../roles/:../:../../:../../../
+  vault_password_file: "vaultpass"
+#  raw_env_vars:
+#    ANSIBLE_ROLES_PATH: roles:../:../../:../../../
 driver:
   name: docker
 docker:
   containers:
     - name: photon
       image: photon
+      ansible_groups:
+        - import_to_esx
       image_version: latest
       dockerfile: tests/dockerfiles/photon-latest
       privileged: true
@@ -29,6 +27,8 @@ docker:
 
     - name: centos-7
       image: centos
+      ansible_groups:
+        - import_to_vcenter
       image_version: '7'
       command: /usr/lib/systemd/systemd
 
@@ -36,11 +36,6 @@ docker:
       image: fedora
       image_version: '24'
       command: /lib/systemd/systemd
-
-    - name: opensuse-13
-      image: opensuse
-      image_version: '13.2'
-      command: /usr/lib/systemd/systemd
 
     - name: ubuntu-xenial
       image: ubuntu

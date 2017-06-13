@@ -5,3 +5,4 @@ ansible.cfg
 ansible-role-govc
 .idea
 .molecule
+./vaultpass

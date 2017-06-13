@@ -11,6 +11,7 @@
     GOVC_PASSWORD: "{{ govc_password }}"
     GOVC_INSECURE: "{{ govc_insecure }}"
     GOVC_DATASTORE: "{{ govc_datastore}}"
+    GOVC_DATACENTER: "{{ govc_datacenter}}"
   changed_when: False
   register: govc_vm_info
   with_items: "{{ govc_ova_imports }}"
@@ -32,7 +33,9 @@
     GOVC_USERNAME: "{{ govc_username }}"
     GOVC_PASSWORD: "{{ govc_password }}"
     GOVC_INSECURE: "{{ govc_insecure }}"
-    GOVC_DATASTORE: "{{ govc_datastore}}"
+    GOVC_DATASTORE: "{{ govc_datastore }}"
+    GOVC_DATACENTER: "{{ govc_datacenter }}"
+    GOVC_CLUSTER: "{{ govc_cluster }}"
   register: command_result
   when: "item.1.rc != 0 or 'UUID' not in item.1.stdout"
 
