@@ -1,0 +1,5 @@
+---
+- name: Download an alternative version
+  hosts: all
+  roles:
+    - { role: ansible-role-govc, govc_version: "0.19.0" }
