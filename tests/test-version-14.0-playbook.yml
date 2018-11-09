@@ -1,7 +1,0 @@
----
-- name: set an alternative version
-  hosts: all
-  roles:
-    - { role: govc, govc_version: "0.14.0" }
-  vars:
-    govc_ova_imports: []

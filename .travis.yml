@@ -1,23 +1,17 @@
-#Copyright © 2017 VMware, Inc. All Rights Reserved.
-#SPDX-License-Identifier: MIT
+# Copyright © 2017 VMware, Inc. All Rights Reserved.
+# SPDX-License-Identifier: MIT
 ---
 sudo: required
 language: python
 cache: pip
 services:
   - docker
-before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-engine
 install:
   - pip install molecule
   # - pip install required driver (e.g. docker, python-vagrant, shade)
   - pip install docker
 script:
-  - rm tests/group_vars/*/vault.yml
-  - >
-    sed -i.orig 's;  playbook.*;  playbook: tests/travis.yml;' molecule.yml
-  - molecule test
+  - molecule test --all
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
