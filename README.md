@@ -45,7 +45,7 @@ to pull a set of OVAs.
         govc_password: password
 
         # alternativly, use govc_url
-        #govc_url:  https://user:pass@host/sdk
+        # govc_url:  https://user:pass@host/sdk
 
         govc_ova_imports:
           - name: photon01
@@ -54,7 +54,7 @@ to pull a set of OVAs.
             ova: /tmp/photon.ova
           - name: vcsa
             spec: /tmp/vcsa.json
-    ova: /tmp/vcsa.ova
+            ova: /tmp/vcsa.ova
 
 
 ```
