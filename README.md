@@ -65,7 +65,8 @@ Update tests/group_vars to suit your test environment.  Make your own set of
 vault.yml files, or replace them with un-encrypted versions for your own passwords.
 
 Then run the tests:
-    
+
+    pip install molecule docker-py
     ./tests/test.sh
     
 
@@ -79,4 +80,3 @@ SPDX-License-Identifier: MIT
 Tom Scanlan
 tscanlan@vmware.com
 tompscanlan@gmail.com
-

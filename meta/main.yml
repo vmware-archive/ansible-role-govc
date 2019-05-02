@@ -1,3 +1,4 @@
+---
 # Copyright © 2017 VMware, Inc. All Rights Reserved.
 # SPDX-License-Identifier: MIT
 
@@ -16,7 +17,7 @@ galaxy_info:
   # this branch. If travis integration is cofigured, only notification for this
   # branch will be accepted. Otherwise, in all cases, the repo's default branch
   # (usually master) will be used.
-  #github_branch:
+  # github_branch:
 
   #
   # Below are all platforms currently available. Just uncomment
@@ -24,30 +25,32 @@ galaxy_info:
   # platform on this list, let us know and we'll get it added!
   #
   platforms:
-  - name: Fedora
-    versions:
-    - 24
+    - name: Fedora
+      versions:
+        - 24
 
-  - name: Centos
-    version:
-    - 7
+    - name: Centos
+      version:
+        - 7
 
-  - name: Photon
-    version:
-    - 1.0
+    - name: Photon
+      version:
+        - 2.0
+        - 3.0
 
-  - name: Ubuntu
-    versions:
-    - trusty
-    - precise
-    - xenial
+    - name: Ubuntu
+      versions:
+        - trusty
+        - precise
+        - xenial
 
-  - name: opensuse
-    versions:
-    - 13.2
+    - name: opensuse
+      versions:
+        - 13.2
 
   galaxy_tags:
     - vmware
     - golang
     - ova
     - vcenter
+    - govc

@@ -2,5 +2,3 @@
 - hosts: all
   roles:
     - { role: ansible-role-govc, govc_version: "0.14.0" }
-  vars:
-    govc_ova_imports: []
