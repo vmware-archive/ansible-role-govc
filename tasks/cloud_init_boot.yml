@@ -18,8 +18,11 @@
 
 
   - name: Insert cloud-init cdrom into vm
-    command: "govc device.cdrom.insert -vm /{{ hostvars[esx_hostname]['esx_datacenter'] }}/vm/{{ inventory_hostname }} -device {{ esx_cdrom_device }} {{ inventory_hostname }}/config.iso"
-
+    command: |
+      govc device.cdrom.insert \
+        -vm /{{ hostvars[esx_hostname]['esx_datacenter'] }}/vm/{{ inventory_hostname }} \
+        -device {{ esx_cdrom_device }} \
+        {{ inventory_hostname }}/config.iso
 
     environment:
       GOVC_HOST: "{{ govc_host }}"
@@ -90,14 +93,18 @@
         GOVC_USERNAME: "{{ govc_username }}"
         GOVC_PASSWORD: "{{ govc_password }}"
         GOVC_INSECURE: "{{ govc_insecure }}"
-        GOVC_DATASTORE: "{{ govc_datastore}}"
+        GOVC_DATASTORE: "{{ govc_datastore }}"
 
     - name: Eject cloud-init cdrom from vm
-      command: "govc device.cdrom.eject -vm /{{ hostvars[esx_hostname]['esx_datacenter'] }}/vm/{{ inventory_hostname }} -device {{ esx_cdrom_device }} {{ inventory_hostname }}/config.iso"
+      command: |
+        govc device.cdrom.eject \
+          -vm /{{ hostvars[esx_hostname]['esx_datacenter'] }}/vm/{{ inventory_hostname }} \
+          -device {{ esx_cdrom_device }} \
+          {{ inventory_hostname }}/config.iso
       environment:
         GOVC_HOST: "{{ govc_host }}"
         GOVC_URL: "https://{{ govc_host }}/sdk"
         GOVC_USERNAME: "{{ govc_username }}"
         GOVC_PASSWORD: "{{ govc_password }}"
         GOVC_INSECURE: "{{ govc_insecure }}"
-        GOVC_DATASTORE: "{{ govc_datastore}}"
+        GOVC_DATASTORE: "{{ govc_datastore }}"

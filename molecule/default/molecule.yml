@@ -31,10 +31,6 @@ platforms:
   - name: ubuntu-precise
     image: ubuntu:12.04
 
-  - name: opensuse-13.2
-    image: opensuse:13.2
-
-
 provisioner:
   name: ansible
   lint:
