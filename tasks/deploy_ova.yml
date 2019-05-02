@@ -10,8 +10,8 @@
     GOVC_USERNAME: "{{ govc_username }}"
     GOVC_PASSWORD: "{{ govc_password }}"
     GOVC_INSECURE: "{{ govc_insecure }}"
-    GOVC_DATASTORE: "{{ govc_datastore}}"
-    GOVC_DATACENTER: "{{ govc_datacenter}}"
+    GOVC_DATASTORE: "{{ govc_datastore }}"
+    GOVC_DATACENTER: "{{ govc_datacenter }}"
   changed_when: false
   register: govc_vm_info
   with_items: "{{ govc_ova_imports }}"
