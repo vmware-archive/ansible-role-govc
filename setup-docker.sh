@@ -1,3 +1,5 @@
+# Copyright 2017 VMware, Inc.  All rights reserved.
+# SPDX-License-Identifier: MIT OR GPL-3.0-only
 
 # docker run -it -v $PWD:/ansible-role-govc --privileged -v /var/run/docker.sock:/var/run/docker.sock ubuntu:14.04  bash
 

@@ -1,12 +1,12 @@
----
 # Copyright © 2017 VMware, Inc. All Rights Reserved.
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: MIT OR GPL-3.0-only
+---
 
 galaxy_info:
   author: Tom Scanlan
   description: Install and manage govc, a statically linked cli tool for operations on VMware vCenter server
   company: VMware
-  license: MIT
+  license: "license ( MIT, GPLv3 )"
   min_ansible_version: 2.0
   issue_tracker_url: https://github.com/vmware/ansible-role-govc/issues
 
